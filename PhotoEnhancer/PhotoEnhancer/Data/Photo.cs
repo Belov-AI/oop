@@ -27,9 +27,9 @@ namespace PhotoEnhancer
                 CheckSize(height, "высота")
                 ];
 
-            for (int x = 0; x < width; x++)
-                for (int y = 0; y < height; y++)
-                    data[x, y] = new Pixel();
+            //for (int x = 0; x < width; x++)
+            //    for (int y = 0; y < height; y++)
+            //        data[x, y] = new Pixel();
         }
 
         public Pixel this[int x, int y]
