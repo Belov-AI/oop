@@ -20,8 +20,6 @@ namespace PhotoEnhancer
         {
             InitializeComponent();
 
-            //comboBoxFilters.Items.Add("Осветление/затемнение");
-
             LoadPicture((Bitmap)Image.FromFile("cat.jpg"));
         }
 
@@ -73,53 +71,20 @@ namespace PhotoEnhancer
             }
 
 
-            //if (filter.ToString() == "Осветление/затемнение")
-            //{
-            //    //MessageBox.Show("Фильтр осветления/затемнения");
-
-            //    //parametresPanel.BackColor = Color.Aquamarine;
-
-            //    var label = new Label();
-            //    label.Left = 0;
-            //    label.Top = 0;
-            //    label.Width = parametresPanel.Width - 50;
-            //    label.Height = 20;
-            //    label.Text = "Коэффициент";
-            //    parametresPanel.Controls.Add(label);
-
-            //    var inputBox = new NumericUpDown();
-            //    inputBox.Left = label.Right;
-            //    inputBox.Top = label.Top;
-            //    inputBox.Width = 50;
-            //    inputBox.Height = label.Height;
-            //    inputBox.Minimum = 0;
-            //    inputBox.Maximum = 10;
-            //    inputBox.Increment = (Decimal)0.05;
-            //    inputBox.DecimalPlaces = 2;
-            //    inputBox.Value = 1;
-            //    inputBox.Name = "coefficient";
-            //    parametresPanel.Controls.Add(inputBox);
-            //}
+            
 
             this.Controls.Add(parametresPanel);
         }
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            var newPhoto = new Photo(originalPhoto.Width, originalPhoto.Height);
+            var filter = comboBoxFilters.SelectedItem as IFilter;
 
-            if(comboBoxFilters.SelectedItem.ToString() == "Осветление/затемнение")
-            {
-                var k = (double)((NumericUpDown)parametresPanel.Controls["coefficient"]).Value;
+            var parameters = new double[parametrControls.Count];
+            for (var i = 0; i < parameters.Length; i++)
+                parameters[i] = (double)parametrControls[i].Value;
 
-                for (int x = 0; x < originalPhoto.Width; x++)
-                    for(int y = 0; y < originalPhoto.Height; y++)
-                    {
-                        newPhoto[x, y] = originalPhoto[x, y] * k;
-                    }
-            }
-
-            resultPhoto = newPhoto;
+            resultPhoto = filter.Process(originalPhoto, parameters);
             pictureBoxResult.Image = Convertors.Photo2Bitmap(resultPhoto);
         }
 
