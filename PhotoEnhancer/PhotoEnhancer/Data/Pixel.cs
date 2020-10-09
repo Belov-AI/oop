@@ -8,7 +8,7 @@ namespace PhotoEnhancer
 {
     public struct Pixel
     {
-        //яркость канала должа быть числом от 0 до 1
+        //интенсивность канала должа быть числом от 0 до 1
         private double r;
         public double R
         {

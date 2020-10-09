@@ -20,7 +20,7 @@ namespace PhotoEnhancer
         {
             InitializeComponent();
 
-            LoadPicture((Bitmap)Image.FromFile("cat.jpg"));
+            //LoadPicture((Bitmap)Image.FromFile("cat.jpg"));
         }
 
         private void comboBoxFilters_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,6 +86,8 @@ namespace PhotoEnhancer
 
             resultPhoto = filter.Process(originalPhoto, parameters);
             pictureBoxResult.Image = Convertors.Photo2Bitmap(resultPhoto);
+
+            saveToolStripMenuItem.Enabled = true;
         }
 
         private void LoadPicture(Bitmap bmp)
@@ -96,11 +98,40 @@ namespace PhotoEnhancer
 
         }
 
+        private void SavePicture(Photo photo, string filename)
+        {
+            var bmp = Convertors.Photo2Bitmap(photo);
+            bmp.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
+        }
+
         public void AddFilter(IFilter filter)
         {
             comboBoxFilters.Items.Add(filter);
-            if (comboBoxFilters.SelectedIndex == -1)
-                comboBoxFilters.SelectedIndex = 0;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                buttonApply.Visible = true;
+                comboBoxFilters.Visible = true;
+
+                if (comboBoxFilters.SelectedIndex == -1)
+                    comboBoxFilters.SelectedIndex = 0;
+
+                LoadPicture((Bitmap)Image.FromFile(openFileDialog1.FileName));
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                SavePicture(resultPhoto, saveFileDialog1.FileName);
         }
     }
 }
