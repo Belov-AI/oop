@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PhotoEnhancer
 {
-    public class ParametrInfo
+    public class ParameterInfo
     {
         public string Name;
         public double DefailtValue;
