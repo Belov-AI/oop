@@ -22,7 +22,6 @@ namespace PhotoEnhancer
             var origS = Convertors.GetPixelSaturation(originalPixel);
             var origL = Convertors.GetPixelLightness(originalPixel);
 
-
             //var newH = origH < 180 ? origH + 180 : origH - 180;
             //return Convertors.HSL2Pixel(newH, origS, origL);
 
