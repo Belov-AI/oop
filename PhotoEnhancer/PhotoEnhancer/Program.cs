@@ -37,17 +37,39 @@ namespace PhotoEnhancer
                 }
                 ));
 
-            mainForm.AddFilter(new TransformFilter(
-                "Отражение по горизонтали",
-                size => size,
-                (point, size) => new Point(size.Width - point.X - 1, point.Y)                
-                ));
+            //mainForm.AddFilter(new TransformFilter(
+            //    "Отражение по горизонтали",
+            //    size => size,
+            //    (point, size) => new Point(size.Width - point.X - 1, point.Y)                
+            //    ));
 
-            mainForm.AddFilter(new TransformFilter(
-                "Поворот на 90° против ч. с.",
-                size => new Size(size.Height, size.Width),
-                (point, size) => new Point(size.Width - point.Y - 1, point.X)
-                ));
+            //mainForm.AddFilter(new TransformFilter(
+            //    "Поворот на 90° против ч. с.",
+            //    size => new Size(size.Height, size.Width),
+            //    (point, size) => new Point(size.Width - point.Y - 1, point.X)
+            //    ));
+
+            Func<Size, RotationParameters, Size> sizeRotator = (size, parameters) =>
+            {
+                var angleInRadians = parameters.AngleInDegrees * Math.PI / 180;
+
+                return new Size(
+                    (int)(size.Width * Math.Abs(Math.Cos(angleInRadians)) +
+                    size.Height * Math.Abs(Math.Sin(angleInRadians))),
+                    (int)(size.Width * Math.Abs(Math.Sin(angleInRadians)) +
+                    size.Height * Math.Abs(Math.Cos(angleInRadians))));
+            };
+
+            Func<Point, Size, RotationParameters, Point?> pointRotator = (point, size, parameters) =>
+            {
+                var newSize = sizeRotator(size, parameters);
+                var angleInRadians = parameters.AngleInDegrees * Math.PI / 180;
+
+                point = new Point(point.X - newSize.Width / 2, point.Y - newSize.Height / 2);
+
+                throw new NotImplementedException();
+            };
+
 
             Application.Run(mainForm);
         }
