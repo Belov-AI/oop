@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace PhotoEnhancer
 {
@@ -34,6 +35,18 @@ namespace PhotoEnhancer
 
                     return new Pixel(chanel, chanel, chanel);
                 }
+                ));
+
+            mainForm.AddFilter(new TransformFilter(
+                "Отражение по горизонтали",
+                size => size,
+                (point, size) => new Point(size.Width - point.X - 1, point.Y)                
+                ));
+
+            mainForm.AddFilter(new TransformFilter(
+                "Поворот на 90° против ч. с.",
+                size => new Size(size.Height, size.Width),
+                (point, size) => new Point(size.Width - point.Y - 1, point.X)
                 ));
 
             Application.Run(mainForm);
