@@ -56,7 +56,11 @@
     <Compile Include="Filters\ParameterInfo.cs" />
     <Compile Include="Filters\ParametrizedFilter.cs" />
     <Compile Include="Filters\PixelFilter.cs" />
+    <Compile Include="Filters\Transform\FreeTransformer.cs" />
+    <Compile Include="Filters\Transform\ITransformer.cs" />
+    <Compile Include="Filters\Transform\RotateTransformer.cs" />
     <Compile Include="Filters\Transform\RotationParameters.cs" />
+    <Compile Include="Filters\Transform\TransformFilter%28IParameters%29.cs" />
     <Compile Include="Filters\Transform\TransformFilter.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
