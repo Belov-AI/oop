@@ -15,7 +15,8 @@ namespace Shapes
         {
             priority["Circle"] = 0;
             priority["Square"] = 1;
-            priority["Triangle"] = 2;
+            priority["Rectangle"] = 2;
+            priority["Triangle"] = 3;
         }
 
         public int Compare(Shape x, Shape y)
