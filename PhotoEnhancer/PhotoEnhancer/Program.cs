@@ -40,7 +40,7 @@ namespace PhotoEnhancer
             //mainForm.AddFilter(new TransformFilter(
             //    "Отражение по горизонтали",
             //    size => size,
-            //    (point, size) => new Point(size.Width - point.X - 1, point.Y)                
+            //    (point, size) => new Point(size.Width - point.X - 1, point.Y)
             //    ));
 
             //mainForm.AddFilter(new TransformFilter(
@@ -67,8 +67,20 @@ namespace PhotoEnhancer
 
                 point = new Point(point.X - newSize.Width / 2, point.Y - newSize.Height / 2);
 
-                throw new NotImplementedException();
+                var cos = Math.Cos(angleInRadians);
+                var sin = Math.Sin(angleInRadians);
+
+                var x = (int)(point.X * cos - point.Y * sin + size.Width / 2);
+                var y = (int)(point.X * sin + point.Y * cos + size.Height / 2);
+
+                if (x < 0 || x >= size.Width || y < 0 || y >= size.Height)
+                    return null;
+
+                return new Point(x, y);
             };
+
+            mainForm.AddFilter(new TransformFilter<RotationParameters>(
+                "Свободное вращение", sizeRotator, pointRotator));
 
 
             Application.Run(mainForm);
