@@ -6,21 +6,8 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    public class Square : Shape
+    public class Square : Rectangle
     {
-        Point topLeft;
-        double side;
-
-        public Square(Point topLeft, double side)
-        {
-            this.topLeft = topLeft;
-            this.side = side;
-        }
-
-        public override void Draw()
-        {
-            //здесь рисуем квадрат
-            throw new NotImplementedException();
-        }
+        public Square(Point topLeft, double side) : base(topLeft, side, side) { }
     }
 }

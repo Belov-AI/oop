@@ -8,15 +8,41 @@ namespace Shapes
 {
     public class Rectangle : Shape
     {
-        Point topLeft;
+        public Point TopLeft;
+
         double width;
+        public double Width
+        {
+            get { return width; }
+
+            set
+            {
+                if (value < 0)
+                    throw new Exception("Ширина не должна быть отрицательной");
+
+                width = value;
+            }
+        }
+
         double height;
+        double Height
+        {
+            get { return height; }
+
+            set
+            {
+                if (value < 0)
+                    throw new Exception("Длина не должна быть отрицательной");
+
+                height = value;
+            }
+        }
 
         public Rectangle(Point topLeft, double width, double height)
         {
-            this.topLeft = topLeft;
-            this.width = width;
-            this.height = height;
+            TopLeft = topLeft;
+            Width = width;
+            Height = height;
         }
 
         public override void Draw()

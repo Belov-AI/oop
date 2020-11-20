@@ -6,13 +6,26 @@ namespace Shapes
 {
     public class Circle : Shape
     {
-        Point center;
+        public Point Center;
+
         double radius;
+        public double Radius
+        {
+            get { return radius; }
+
+            set
+            {
+                if (value < 0)
+                    throw new Exception("Радиус не должен быть отрицательным");
+
+                radius = value;
+            }
+        }
         
         public Circle(Point center, double radius)
         {
-            this.center = center;
-            this.radius = radius;
+            Center = center;
+            Radius = radius;
         }
 
         public override void Draw()

@@ -8,15 +8,15 @@ namespace Shapes
 {
     class Triangle : Shape
     {
-        Point a;
-        Point b;
-        Point c;
+        public Point A;
+        public Point B;
+        public Point C;
 
         public Triangle(Point a, Point b, Point c)
         {
-            this.a = a;
-            this.b = b;
-            this.c = c;
+            A = a;
+            B = b;
+            C = c;
         }
 
         public override void Draw()
