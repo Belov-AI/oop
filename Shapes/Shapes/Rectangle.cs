@@ -11,7 +11,7 @@ namespace Shapes
         public Point TopLeft;
 
         double width;
-        public double Width
+        public virtual double Width
         {
             get { return width; }
 
@@ -25,7 +25,7 @@ namespace Shapes
         }
 
         double height;
-        double Height
+        public virtual double Height
         {
             get { return height; }
 

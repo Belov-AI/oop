@@ -1,13 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Shapes
 {
-    public class Square : Rectangle
+    public class Square : Shape
     {
-        public Square(Point topLeft, double side) : base(topLeft, side, side) { }
+        public Point TopLeft;
+        
+        double side;
+        public double Side
+        {
+            get { return side; }
+
+            set
+            {
+                if (value < 0)
+                    throw new Exception("Сторона не может быть отрицательной");
+
+                side = value;
+            }
+        }
+
+        public override double Area { get { return Side * Side; } }
+
+        public Square(Point topLeft, double side)
+        {
+            this.TopLeft = topLeft;
+            this.side = side;
+        }
+
+        public override void Draw()
+        {
+            //здесь рисуем квадрат
+            throw new NotImplementedException();
+        }
     }
 }
