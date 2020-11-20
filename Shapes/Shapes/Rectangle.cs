@@ -38,6 +38,8 @@ namespace Shapes
             }
         }
 
+        public override double Area { get { return Width * Height; } }
+
         public Rectangle(Point topLeft, double width, double height)
         {
             TopLeft = topLeft;

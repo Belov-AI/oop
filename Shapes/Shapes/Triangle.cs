@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Shapes
 {
-    class Triangle : Shape
+    public class Triangle : Shape
     {
         public Point A;
         public Point B;
@@ -17,6 +17,11 @@ namespace Shapes
             A = a;
             B = b;
             C = c;
+        }
+
+        public override double Area 
+        { 
+            get { return Math.Abs((B.X - A.X) * (C.Y - A.Y) - (B.Y - A.Y) * (C.X - A.X)) / 2; } 
         }
 
         public override void Draw()

@@ -21,7 +21,9 @@ namespace Shapes
                 radius = value;
             }
         }
-        
+
+        public override double Area { get { return Math.PI * Radius * Radius; } }
+
         public Circle(Point center, double radius)
         {
             Center = center;

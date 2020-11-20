@@ -10,5 +10,6 @@ namespace Shapes
     public abstract class Shape
     {
        public abstract void Draw();
+       public abstract double Area { get; }
     }
 }
