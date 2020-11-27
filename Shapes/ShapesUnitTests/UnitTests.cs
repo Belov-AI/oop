@@ -56,6 +56,39 @@ namespace ShapesUnitTests
             Assert.AreEqual(1, line.B, 1e-8);
         }
 
+        [TestMethod]
+        public void TestLineIsOn()
+        {
+            var line = new Line(new Point(0, 1), new Point(1, 3));
+
+            Assert.IsTrue(line.IsOn(new Point(2, 5)));
+            Assert.IsFalse(line.IsOn(new Point(2, 3)));
+        }
+
+        [TestMethod]
+        public void TestLineSegmentLength()
+        {
+            var segment = new LineSegment(new Point(0, 1), new Point(1, 3));
+
+            Assert.AreEqual(Math.Sqrt(5), segment.Length, 1e-8);
+        }
+
+        [TestMethod]
+        public void TestLineSegmentIsOn()
+        {
+            var segment = new LineSegment(new Point(0, 1), new Point(1, 3));
+            Assert.IsFalse(segment.IsOn(new Point(2, 5)));
+            Assert.IsFalse(segment.IsOn(new Point(2, 3)));
+            Assert.IsTrue(segment.IsOn(new Point(0.5, 2)));
+        }
+
+        [TestMethod]
+        public void TestOyIntersection()
+        {
+            var line = new Line(new Point(1, 3), new Point(2, 5));
+            Assert.IsTrue(IsOyIntersectionOn(line));
+        }
+
 
         void SetWidth(Rectangle r, double newWidth)
         {
@@ -78,6 +111,11 @@ namespace ShapesUnitTests
         {
             s.Side = 5;
             return Math.Abs(s.Area - 25) < 1e-8;
+        }
+
+        bool IsOyIntersectionOn(Line line)
+        {
+            return line.IsOn(new Point(0, line.B));
         }
     }
 

@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="Circle.cs" />
     <Compile Include="Line.cs" />
+    <Compile Include="LinearObject.cs" />
+    <Compile Include="LineSegment.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rectangle.cs" />
