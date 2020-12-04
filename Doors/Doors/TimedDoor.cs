@@ -3,11 +3,13 @@ using TimeLib;
 
 namespace Doors
 {
-    public class TimedDoor : IDoor, ITimerClient
+    public class TimedDoor : IDoor
     {
         Timer timer;
         int timeout;
         int requestID;
+        DoorTimerAdapter adapter;
+
         public bool IsOpen { get; private set; }
 
         public TimedDoor(int timeoutInSeconds)
@@ -15,6 +17,7 @@ namespace Doors
             timer = new Timer();
             timeout = timeoutInSeconds;
             requestID = 0;
+            adapter = new DoorTimerAdapter(this);
         }
 
         public void Lock()
@@ -25,10 +28,12 @@ namespace Doors
         public void Unlock()
         {
             IsOpen = true;
-            timer.Register(timeout, this, ++requestID);
+
+            adapter = new DoorTimerAdapter(this);
+            timer.Register(timeout, adapter, ++requestID);
         }
 
-        public void TimeOut(int id)
+        public void DoorTimeOut(int id)
         {
             if(id == requestID)
                Lock();

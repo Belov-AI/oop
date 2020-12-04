@@ -30,7 +30,7 @@ namespace DoorsTestProject
         {
             var door = new TimedDoor(15);
             door.Unlock();
-            door.TimeOut(1);
+            door.DoorTimeOut(1);
             Assert.IsFalse(door.IsOpen);
         }
     }
