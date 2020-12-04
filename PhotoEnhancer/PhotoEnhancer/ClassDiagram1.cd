@@ -44,7 +44,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="PhotoEnhancer.LighteningParameters" Collapsed="true">
-    <Position X="5.75" Y="7.75" Width="1.5" />
+    <Position X="6.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAIAAAAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Filters\LighteningParameters.cs</FileName>
@@ -66,6 +66,44 @@
       <FileName>Filters\ParameterInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="PhotoEnhancer.FreeTransformer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAAAAQACAABAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Filters\Transform\FreeTransformer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PhotoEnhancer.RotateTransformer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAAAAAACAAAAAAAAAAAQAAAAgAAA=</HashCode>
+      <FileName>Filters\Transform\RotateTransformer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PhotoEnhancer.RotationParameters" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Filters\Transform\RotationParameters.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="PhotoEnhancer.TransformFilter&lt;TParameters&gt;" Collapsed="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAACAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\Transform\TransformFilter(IParameters).cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PhotoEnhancer.TransformFilter" Collapsed="true">
+    <Position X="11.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\Transform\TransformFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="PhotoEnhancer.Pixel" Collapsed="true">
     <Position X="3" Y="5.25" Width="1.5" />
     <TypeIdentifier>
@@ -74,7 +112,7 @@
     </TypeIdentifier>
   </Struct>
   <Interface Name="PhotoEnhancer.IFilter" Collapsed="true">
-    <Position X="6.5" Y="2.5" Width="1.5" />
+    <Position X="7" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAgAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Filters\IFilter.cs</FileName>
@@ -85,6 +123,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Filters\IParameters.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="PhotoEnhancer.ITransformer&lt;TParameters&gt;" Collapsed="true">
+    <Position X="15" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAQAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Filters\Transform\ITransformer.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
