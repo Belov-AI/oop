@@ -72,6 +72,13 @@ namespace Linq
             Console.WriteLine($"Максимум: {resultList.Max()}");
             Console.WriteLine($"Среднее: {resultList.Average()}");
 
+            Console.WriteLine(resultList.All(x => x > 0));
+            Console.WriteLine(resultList.All(x => x % 2 == 0));
+            Console.WriteLine(resultList.Any(x => x % 2 == 0));
+            Console.WriteLine(resultList.Any(x => x < 0));
+
+            Console.WriteLine(resultList.Aggregate(1.0, (s, x) => s * x, res => Math.Pow(res, 1.0 / resultList.Count())));
+
             Console.ReadKey();
         }
 

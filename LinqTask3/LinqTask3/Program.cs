@@ -33,12 +33,18 @@ namespace LinqTask3
             PrintSequence(students);
 
             //сортировка в порядке уменьшения длины слова, а затем в алфавитном порядке
-            students = groups
+            var students1 = groups
                 .SelectMany(group => group.Students)
-                .Distinct()
                 .OrderByDescending(name => name.Length)
                 .ThenBy(name => name)
                 .ToList();
+            PrintSequence(students1);
+
+            //var students2 = groups
+            //    .SelectMany(group => group.Students)
+            //    .OrderBy(name => (-name.Length, name))
+            //    .ToList();
+            //PrintSequence(students2);
 
             PrintSequence(students);
 
@@ -50,6 +56,21 @@ namespace LinqTask3
             Console.WriteLine(students.Min());
             Console.WriteLine(students.Max());
             Console.WriteLine(students.Max(name => name.Length));
+
+            //самое длинное лексикографически первое имя
+            Console.WriteLine(students
+                .Min(name => (-name.Length, name))
+                .Item2);
+
+            var dict = students
+                .GroupBy(name => name.Length)
+                .ToDictionary(group => group.Key);
+            //.ToDictionary(name => name.Length); //так нельзя
+
+            var lookUp = students.ToLookup(name => name.Length);
+
+            PrintSequence(dict[5]);
+            PrintSequence(lookUp[5]);
 
             Console.ReadKey();
         }
