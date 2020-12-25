@@ -5,15 +5,16 @@ namespace PhotoEnhancer
     public abstract class ParametrizedFilter<TParameters> : IFilter
         where TParameters : IParameters, new()
     {
+        IParametersFactory<TParameters> factory = new ParametersFactory<TParameters>();
+
         public ParameterInfo[] GetParametersInfo()
         {
-            return new TParameters().GetDescription();
+            return factory.GetDescription();
         }
 
         public Photo Process(Photo original, double[] values)
         {
-            var parameters = new TParameters();
-            parameters.SetValues(values);
+            var parameters = factory.CreateParameters(values);
             return Process(original, parameters);
         }
 
