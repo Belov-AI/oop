@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMRPG", "MMRPG\MMRPG.csproj", "{672C6840-535C-4DFA-B62A-BEF440440F5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MMRPGUnitTestProject", "MMRPGUnitTestProject\MMRPGUnitTestProject.csproj", "{6B091B2E-E874-4B38-A00D-B2157C75BBB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{672C6840-535C-4DFA-B62A-BEF440440F5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672C6840-535C-4DFA-B62A-BEF440440F5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672C6840-535C-4DFA-B62A-BEF440440F5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672C6840-535C-4DFA-B62A-BEF440440F5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B091B2E-E874-4B38-A00D-B2157C75BBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B091B2E-E874-4B38-A00D-B2157C75BBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B091B2E-E874-4B38-A00D-B2157C75BBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B091B2E-E874-4B38-A00D-B2157C75BBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23427AAA-C124-42C3-B65B-88175A2D641F}
+	EndGlobalSection
+EndGlobal
